@@ -8,9 +8,15 @@
 </style>
 <?php
 
-/* $rows= all('sales');
-dd($rows);
-
+ //$rows= all('sales');
+ //dd($rows);
+ //$rows= all('sales'," where quantity >=2");
+ //dd($rows);
+ //$rows= all('sales',['quantity'=>2]);
+ //dd($rows);
+ $rows= all('sales',['quantity'=>2],' Order by id desc');
+ dd($rows);
+/*
 $sales=all('sales'," where quantity >=2");
 dd($sales);
 
@@ -35,9 +41,9 @@ dd($row);
 
 update("items", $row); */
 
-$data=['id'=>14,
+/* $data=['id'=>14,
         'name'=>'豬排鐵板麵加蛋',
        'cost'=>75,
        'stock'=>30,
        'price'=>105];
-save('items',$data);
+save('items',$data); */
