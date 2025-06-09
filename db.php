@@ -36,6 +36,22 @@ function find($table,$id){
     return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 }
 
+function update($table,$data){
+    global $pdo;
+    $tmp=[];
+        foreach($data as $key=>$value){
+            if($key!='id'){
+                $tmp[]="`$key`='$value'";
+            }
+        }
+    $sql="UPDATE $table SET ".join(" , ",$tmp)."
+                      WHERE id='{$data['id']}'";
+    
+        echo $sql;
+    //return $pdo->exec($sql);
+
+}
+
 function q($sql){
     global $pdo;
 
