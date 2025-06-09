@@ -18,6 +18,7 @@ $all=q("select name ,price from items order by price");
 dd($all); */
 
 dd(find('items',3));
+dd(find('items',['name'=>'蛋餅','stock'=>50]));
 
 /* stars('正三角形', 15);
 stars('菱形', 15);
