@@ -2,7 +2,8 @@
 $dsn="mysql:host=localhost;dbname=store;charset=utf8";
 $pdo=new PDO($dsn,'root','');
 
-function all($table,$where=null){
+
+function all($table,$array,$str){
     global $pdo;
     $sql="SELECT * FROM $table $where";
     //echo $sql;
@@ -10,7 +11,6 @@ function all($table,$where=null){
     return $rows;
 
 }
-
 
 function dd($array){
     echo "<pre>";
@@ -22,10 +22,7 @@ function find($table,$id){
     global $pdo;
 
     if(is_array($id)){
-        $tmp=[];
-        foreach($id as $key=>$value){
-            $tmp[]="`$key`='$value'";
-        }
+        $tmp=array2sql($id);
         $sql="SELECT * FROM $table WHERE ".join(" AND ",$tmp);
     }else{
         $sql="SELECT * FROM $table WHERE id='$id'";
@@ -38,12 +35,8 @@ function find($table,$id){
 
 function update($table,$data){
     global $pdo;
-    $tmp=[];
-        foreach($data as $key=>$value){
-            if($key!='id'){
-                $tmp[]="`$key`='$value'";
-            }
-        }
+    $tmp=array2sql($data);
+
     $sql="UPDATE $table SET ".join(" , ",$tmp)."
                       WHERE id='{$data['id']}'";
     
@@ -67,6 +60,15 @@ function save($table,$data){
     }else{
         insert($table,$data);
     }
+}
+
+function array2sql($array){
+    $tmp=[];
+    foreach($array as $key=>$value){
+        $tmp[]="`$key`='$value'";
+    }
+
+    return $tmp;
 }
 
 function q($sql){
