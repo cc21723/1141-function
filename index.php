@@ -11,6 +11,9 @@
 $rows= all('sales');
 dd($rows);
 
+$sales=all('sales'," where quantity >=2");
+dd($sales);
+
 /* stars('正三角形', 15);
 stars('菱形', 15);
 stars('矩形', 15);
