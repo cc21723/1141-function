@@ -25,7 +25,7 @@ stars('菱形', 15);
 stars('矩形', 15);
 stars('倒三角形', 15); */
 
-$row=find('items',5);
+/* $row=find('items',5);
 dd($row);
 
 $row['cost']=15;
@@ -33,6 +33,10 @@ $row['price']=45;
 
 dd($row);
 
-update("items", $row);
+update("items", $row); */
 
-
+$data=['name'=>'1+1',
+       'cost'=>50,
+       'stock'=>100,
+       'price'=>75];
+insert('items',$data);
