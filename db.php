@@ -47,8 +47,8 @@ function update($table,$data){
     $sql="UPDATE $table SET ".join(" , ",$tmp)."
                       WHERE id='{$data['id']}'";
     
-        echo $sql;
-    //return $pdo->exec($sql);
+    // echo $sql;
+    return $pdo->exec($sql);
 
 }
 
