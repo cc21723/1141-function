@@ -14,8 +14,8 @@
  //dd($rows);
  //$rows= all('sales',['quantity'=>2]);
  //dd($rows);
- $rows= all('sales',['quantity'=>2],' Order by id desc');
- dd($rows);
+/*  $rows= all('sales',['quantity'=>2],' Order by id desc');
+ dd($rows); */
 /*
 $sales=all('sales'," where quantity >=2");
 dd($sales);
@@ -47,3 +47,5 @@ update("items", $row); */
        'stock'=>30,
        'price'=>105];
 save('items',$data); */
+
+del('items', ['cost'=>40]);

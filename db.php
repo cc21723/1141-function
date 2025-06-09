@@ -77,6 +77,22 @@ function save($table,$data){
     }
 }
 
+
+function del($table,$id){
+    global $pdo;
+    $sql="DELETE FROM $table WHERE ";
+    if(is_array($id)){
+        $tmp=array2sql($id);
+        $sql .= join(" AND ",$tmp);
+    }else{
+        $sql .= "id='$id'";
+    }
+
+    //echo  $sql;
+
+    return $pdo->exec($sql);
+}
+
 function array2sql($array){
     $tmp=[];
     foreach($array as $key=>$value){
