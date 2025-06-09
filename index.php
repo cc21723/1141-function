@@ -8,14 +8,16 @@
 </style>
 <?php
 
-$rows= all('sales');
+/* $rows= all('sales');
 dd($rows);
 
 $sales=all('sales'," where quantity >=2");
 dd($sales);
 
 $all=q("select name ,price from items order by price");
-dd($all);
+dd($all); */
+
+dd(find('items',3));
 
 /* stars('正三角形', 15);
 stars('菱形', 15);
